@@ -1,0 +1,12 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* 將畫布分為 12 列 */
+    grid-gap: 20px;
+    /* 列之間的間距 */
+}
+
+.grid-item {
+    grid-column: span 6;
+    /* 將元素佔據 6 列 */
+}

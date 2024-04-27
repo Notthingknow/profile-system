@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+    <div id="top">
+        <img src="./back.png" alt="back" id="back_img" onclick="back()">
+    </div>
+
+    <div id="box">
+        <form id="login" method="post" action="signup.php">
+            <label>NID:</label>
+            <p id="NID_p"></p>
+            <input type="hidden" name="NID" value="" id="NID">
+            <br>
+            <label>Password:</label>
+            <input type="password" name="password">
+            <br>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function back() {
+            window.location.href = "http://localhost/index.html";
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            var queryString = `name=${encodeURIComponent('NID')}`;
+            var url = `http://localhost/find.php?${queryString}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById("NID_p").innerHTML = data.nid;
+                    document.getElementById("NID").value = data.nid;
+                })
+                .catch(error => {
+                    console.error('錯誤:', error);
+                });
+
+        });
+    </script>
+</body>
+
+</html>

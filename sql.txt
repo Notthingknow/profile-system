@@ -1,0 +1,93 @@
+CREATE TABLE users (
+    NID INT PRIMARY KEY,
+    password TEXT NOT NULL
+);
+
+CREATE TABLE talk (
+    talk_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci PRIMARY KEY,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID),
+    talk_time DATE NOT NULL,
+    talk_location TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+);
+
+CREATE TABLE award ( 
+    award_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci PRIMARY KEY,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID),
+    award_time DATE NOT NULL,
+    award_institution TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL 
+);
+
+CREATE TABLE plan ( 
+    plan_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci PRIMARY KEY,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID),
+    plan_time DATE NOT NULL,
+    plan_job TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL 
+);
+
+CREATE TABLE paper (
+    paper_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci PRIMARY KEY,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID),
+    paper_author TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    paper_periodical TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    paper_time DATE NOT NULL
+);
+
+CREATE TABLE course (
+    course_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID),
+    course_room TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    course_class TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    course_time INT NOT NULL,
+    course_week INT NOT NULL
+);
+
+CREATE TABLE student (
+    student_name TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID),
+    student_award TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    student_institution TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    student_time DATE NOT NULL
+);
+
+CREATE TABLE person (
+    person_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci PRIMARY KEY,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID),
+    person_position TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    person_photo VARCHAR(255) NOT NULL,
+    person_email TEXT NOT NULL,
+    person_phone INT NOT NULL
+);
+
+CREATE TABLE education (
+    education_name TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID),
+    education_school TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    education_department TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+);
+
+CREATE TABLE speciality (
+    speciality_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci PRIMARY KEY,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID),
+    english_name TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+);
+
+CREATE TABLE in_school (
+    inschool_name TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID)
+);
+
+CREATE TABLE out_school (
+    outschool_name TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    NID INT,
+    FOREIGN KEY (NID) REFERENCES users(NID)
+);

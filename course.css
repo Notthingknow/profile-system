@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(./background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 110vh;
+    overflow: scroll;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 0px;
+    text-align: center;
+    background-color: rgb(255, 255, 255, 0.9);
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.empty-cell {
+    background-color: #ddd;
+}
+
+h1 {
+    color: white;
+}
+
+#top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: dodgerblue;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#top img:hover {
+    cursor: pointer;
+}
+
+#top div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#top p {
+    margin: 10px 15px;
+    color: white;
+}
+
+#top p:hover {
+    cursor: pointer;
+}
+
+#back_img {
+    width: 35px;
+    height: 35px;
+    margin: 10px;
+}

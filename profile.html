@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="profile.css">
+</head>
+
+<body>
+    <div id="top">
+        <img src="./back.png" alt="back" id="back_img" onclick="back()">
+        <div>
+            <p id="sign_up" onclick="sign_up_page()">注冊</p>
+            <p id="login" onclick="login_page()">登入</p>
+        </div>
+    </div>
+
+    <div class="box" id="person">
+        <img src="./miku.jpg" alt="miku" id="img" height="300">
+        <div class="person">
+            <div class="person">
+                <p id="name" class="big_p">MIKU</p>
+                <p id="position" style="font-size:20px; float:inline-end;">教授</p>
+            </div>
+            <div class="person">
+                <p id="email">Email:123</p>
+                <div id="course_e_p">
+                    <button onclick="course()">課表時間</button>
+                    <p id="phone">Phone:123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box" id="edu_spe">
+        <div>
+            <p class="title_p">學歷</p>
+            <br>
+            <div id="edu" class="item"></div>
+        </div>
+        <div>
+            <p class="title_p">專長</p>
+            <br>
+            <div id="spe" class="item">
+            </div>
+        </div>
+    </div>
+
+    <div class="box" id="in_out">
+        <div>
+            <p class="title_p">校內經歷</p>
+            <br>
+            <div id="in" class="item"></div>
+        </div>
+        <div>
+            <p class="title_p">校外經歷</p>
+            <br>
+            <div id="out" class="item"></div>
+        </div>
+    </div>
+
+    <div class="box" id="talk_plan">
+        <div>
+            <p class="title_p">演講</p>
+            <br>
+            <div id="talk" class="item"></div>
+        </div>
+        <div>
+            <p class="title_p">計畫</p>
+            <br>
+            <div id="plan" class="item"></div>
+        </div>
+    </div>
+
+    <div class="box" id="stu_award">
+        <div>
+            <p class="title_p">學生獲獎</p>
+            <br>
+            <div id="stu" class="item"></div>
+        </div>
+        <div>
+            <p class="title_p">研究獲獎</p>
+            <br>
+            <div id="award" class="item"></div>
+        </div>
+    </div>
+
+    <div class="box1" id="paper">
+        <p class="title_p">論文發表</p>
+        <br>
+        <div id="paper" class="item"></div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+
+</html>

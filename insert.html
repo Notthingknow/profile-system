@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert</title>
+    <link rel="stylesheet" type="text/css" href="insert.css">
+</head>
+
+<body>
+    <div class="form">
+        <div class="row">
+            <div id="row1">
+                <img id="img" alt="img" height="193">
+                <form action="person.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image">
+                    <input type="submit" value="上傳圖片" />
+                </form>
+            </div>
+            <div id="row2">
+                <form method="post" action="person.php">
+                    <br>
+                    <label>姓名：</label>
+                    <br>
+                    <input type="text" id="person_name" name="person_name" placeholder="miku">
+                    <br>
+                    <label>職位：</label>
+                    <br>
+                    <input type="text" id="person_position" name="person_position">
+                    <br>
+                    <label>手機號碼：</label>
+                    <input type="text" id="person_phone" name="person_phone">
+                    <br>
+                    <label>電子信箱：</label>
+                    <input type="text" id="person_email" name="person_email">
+                    <br>
+                    <br>
+                    <button type="submit" name="form_id" value="edit_person" class="submit"
+                        style="margin-left:255px">更改</button>
+                </form>
+            </div>
+            <div class="test3" style="margin-right: 15px;">
+                <div>
+                    <label>學歷：</label>
+                    <br>
+                    <br>
+                    <div id="education_infor"></div>
+                    <button type="button" onclick="showPopup('insert_education')" class="insert_btn">新增</button>
+                </div>
+            </div>
+            <div class="test3">
+                <div>
+                    <label>專長：</label>
+                    <br>
+                    <br>
+                    <div id="speciality_infor"></div>
+                    <button type="button" onclick="showPopup('insert_speciality')" class="insert_btn">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_education">
+        <div class="popup-content">
+            <form id="education" action="insert.php" method="post">
+                <label>學校：</label>
+                <input type="text" id="education_school" name="education_school">
+                <label>科系：</label>
+                <input type="text" id="education_department" name="education_department">
+                <select name="education_name">
+                    <option value="學士">學士</option>
+                    <option value="碩士">碩士</option>
+                    <option value="博士">博士</option>
+                </select>
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_education" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_education')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_speciality">
+        <div class="popup-content">
+            <form id="speciality" action="insert.php" method="post">
+                <label>中文名：</label>
+                <input type="text" id="speciality_name" name="speciality_name">
+                <label>英文名：</label>
+                <input type="text" id="english_name" name="english_name">
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_speciality" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_speciality')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="form">
+        <h2>校內經歷：</h2>
+        <br>
+        <div id="inschool_infor">
+        </div>
+        <button type="button" onclick="showPopup('insert_inschool')" class="insert_btn">新增</button>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_inschool">
+        <div class="popup-content">
+            <form id="inschool" action="insert.php" method="post">
+                <label>校內經歷：</label>
+                <input type="text" id="inschool_name" name="inschool_name">
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_inschool" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_inschool')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="form">
+        <h2>校外經歷：</h2>
+        <br>
+        <div id="outschool_infor">
+        </div>
+        <button type="button" onclick="showPopup('insert_outschool')" class="insert_btn">新增</button>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_outschool">
+        <div class="popup-content">
+            <form id="outschool" action="insert.php" method="post">
+                <label>校外經歷：</label>
+                <input type="text" id="outschool_name" name="outschool_name">
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_outschool" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_outschool')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="form">
+        <h2>演講：</h2>
+        <br>
+        <div id="talk_infor">
+        </div>
+        <button type="button" onclick="showPopup('insert_talk')" class="insert_btn">新增</button>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_talk">
+        <div class="popup-content">
+            <form id="talk" action="insert.php" method="post">
+                <label>演講主題：</label>
+                <input type="text" id="talk_name" name="talk_name">
+                <br>
+                <label>演講時間：</label>
+                <input type="date" id="talk_time" name="talk_time">
+                <label>演講地點：</label>
+                <input type="text" id="talk_location" name="talk_location">
+                <br>
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_talk" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_talk')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="form">
+        <h2>獲獎：</h2>
+        <br>
+        <div id="award_infor"></div>
+        <button onclick="showPopup('insert_award')" class="insert_btn">新增</button>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_award">
+        <div class="popup-content">
+            <form id="award" action="insert.php" method="post">
+                <label>奬項名字：</label>
+                <input type="text" id="award_name" name="award_name">
+                <br>
+                <label>頒奬機構：</label>
+                <input type="text" id="award_institution" name="award_institution">
+                <label>獲獎時間：</label>
+                <input type="text" id="award_time" name="award_time">
+                <br>
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_award" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_award')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="form">
+        <h2>計劃：</h2>
+        <br>
+        <div id="plan_infor"></div>
+        <button onclick="showPopup('insert_plan')" class="insert_btn">新增</button>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_plan">
+        <div class="popup-content">
+            <form id="plan" action="insert.php" method="post">
+                <label>計劃名字：</label>
+                <input type="text" id="plan_name" name="plan_name">
+                <br>
+                <label>計劃時間：</label>
+                <input type="date" id="plan_time" name="plan_time">
+                <label>擔任職位：</label>
+                <input type="text" id="plan_job" name="plan_job">
+                <br>
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_plan" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_plan')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="form">
+        <h2>論文：</h2>
+        <br>
+        <div id="paper_infor"></div>
+        <button onclick="showPopup('insert_paper')" class="insert_btn">新增</button>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_paper">
+        <div class="popup-content">
+            <form id="paper" action="insert.php" method="post">
+                <label>論文名字：</label>
+                <input type="text" id="paper_name" name="paper_name">
+                <br>
+                <label>作者名稱：</label>
+                <input type="text" id="paper_author" name="paper_author">
+                <label>發表期刊：</label>
+                <input type="text" id="paper_periodical" name="paper_periodical">
+                <label>發表時間：</label>
+                <input type="date" id="paper_time" name="paper_time">
+                <br>
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_paper" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_paper')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="form">
+        <h2>課程：</h2>
+        <br>
+        <div id="course_infor"></div>
+        <button onclick="showPopup('insert_course')" class="insert_btn">新增</button>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_course">
+        <div class="popup-content">
+            <form id="course" action="insert.php" method="post">
+                <label>課程名字：</label>
+                <input type="text" id="course_name" name="course_name">
+                <br>
+                <label>星期：</label>
+                <select name="course_week" id="course_week">
+                    <option value="1">星期一</option>
+                    <option value="2">星期二</option>
+                    <option value="3">星期三</option>
+                    <option value="4">星期四</option>
+                    <option value="5">星期五</option>
+                    <option value="6">星期六</option>
+                    <option value="7">星期日</option>
+                </select>
+                <label>時間：</label>
+                <select name="course_time">
+                    <option value="1">第一節</option>
+                    <option value="2">第二節</option>
+                    <option value="3">第三節</option>
+                    <option value="4">第四節</option>
+                    <option value="5">第五節</option>
+                    <option value="6">第六節</option>
+                    <option value="7">第七節</option>
+                    <option value="8">第八節</option>
+                    <option value="9">第九節</option>
+                    <option value="10">第十節</option>
+                    <option value="11">第十一節</option>
+                    <option value="12">第十二節</option>
+                    <option value="13">第十三節</option>
+                    <option value="14">第十四節</option>s
+                </select>
+                <label>課程教室：</label>
+                <input type="text" id="course_room" name="course_room">
+                <label>課程班級：</label>
+                <input type="text" id="course_class" name="course_class">
+                <br>
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_course" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_course')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="form">
+        <h2>學生：</h2>
+        <br>
+        <div id="student_infor"></div>
+        <button onclick="showPopup('insert_student')" class="insert_btn">新增</button>
+    </div>
+    <br>
+
+    <div class="popup" id="insert_student">
+        <div class="popup-content">
+            <form id="student_award" action="insert.php" method="post">
+                <label>學生奬項：</label>
+                <input type="text" id="student_award" name="student_award">
+                <br>
+                <label>領奬學生：</label>
+                <input type="text" id="student_name" name="student_name">
+                <label>領奬時間：</label>
+                <input type="date" id="student_time" name="student_time">
+                <label>領奬地點：</label>
+                <input type="text" id="student_institution" name="student_institution">
+                <br>
+                <div class="pop_div_btn">
+                    <button type="submit" name="form_id" value="insert_student" class="submit">新增</button>
+                    <button type="button" onclick="hidePopup('insert_student')">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+    <div class="center">
+        <button type="button" onclick="location.href='http://localhost'">返回</button>
+        <form action="del.php" method="post">
+            <input type="submit" name="table" value="刪除資料表" id="del_table">
+        </form>
+    </div>
+
+    <script src="insert.js"></script>
+</body>
+
+</html>
